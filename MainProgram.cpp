@@ -124,3 +124,37 @@ public:
     // TODO 6a: default-construct all N elements to T()
     FixedArray() {
         for(int i = 0 ; i < N; ++i){
+            data_[i] = T();
+        }
+    }
+
+    // TODO 6b: return N
+    int capacity() const { return N; }    // <-- replace
+
+    // TODO 6c: set data_[index]; throw std::out_of_range if invalid
+    void set(int index, const T& value) {
+     if (index < 0 ||index >= N)
+      throw std::out_of_range("");
+      data_[index] = value;
+    }
+
+    // TODO 6d: return data_[index]; throw std::out_of_range if invalid
+    T at(int index) const {
+        if (index < 0 ||index >= N)
+          throw std::out_of_range("");
+          return data_[index];
+    }
+};
+
+// ================================
+// FUNCTION IMPLEMENTATIONS / main
+// ================================
+
+int main() {
+    std::cout << "=== C++ Templates Lab ===\n";
+
+    // You may add your own test calls here to experiment.
+    std::cout << "maxValue(3, 7) = " << maxValue(3, 7) << "\n";
+
+    return 0;
+}
